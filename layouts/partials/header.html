@@ -1,15 +1,11 @@
 <header>
-    <h1>{{ $.Site.Title }}</h1>
+    <h1><a href="{{ $redirectUrl }}">{{ $.Site.Title }}</a></h1>
     {{ with .Site.Params.navigation_links }}
     <nav>
-        {{ range $index, $link := . }}
-            {{ if $index }} / {{ end }}
-            {{ if $link.url }}
-                <a href="{{ $link.url }}">{{ $link.text }}</a>
-            {{ else }}
-                {{ $link.text }}
-            {{ end }}
-        {{ end }}
+        {{ range $index, $link := . }} {{ if $index }} / {{ end }} {{ if
+        $link.url }}
+        <a href="{{ $link.url }}">{{ $link.text }}</a>
+        {{ else }} {{ $link.text }} {{ end }} {{ end }}
     </nav>
     {{ end }}
 </header>
