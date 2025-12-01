@@ -6,8 +6,11 @@
         <p class="custom_footer">{{ partial "custom_footer.html" . }}</p>
         {{ end }}
         <p class="attribution custom_footer">
-            &copy; Harper Reed. Hosted by
-            <a href="https://micro.blog">Micro.blog</a>.
+            {{ $copyrightName := .Site.Params.copyright_name | default .Site.Author.name }}
+            {{ $hostingProvider := .Site.Params.hosting_provider | default "Micro.blog" }}
+            {{ $hostingUrl := .Site.Params.hosting_url | default "https://micro.blog" }}
+            &copy; {{ $copyrightName }}. Hosted by
+            <a href="{{ $hostingUrl }}">{{ $hostingProvider }}</a>.
         </p>
     </div>
 </footer>

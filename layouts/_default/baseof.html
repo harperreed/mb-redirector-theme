@@ -3,9 +3,9 @@
 <html lang="en">
     {{ partial "head.html" . }}
     <body>
-        {{ partial "header.html" . }} 
-        {{ block "main" . }}{{ end }} 
-        {{ partial "footer.html" . }} 
+        {{ partial "header.html" . }}
+        {{ block "main" . }}{{ end }}
+        {{ partial "footer.html" . }}
         {{ partial "custom_footer.html" . }}
     </body>
 </html>
@@ -14,13 +14,15 @@
 <html lang="{{ .Site.Language.Lang }}">
     <head>
         {{ partial "microblog_head.html" . }}
+        {{ $redirectUrl := .Site.Params.default_redirect_url | default (printf "%snotes/" .Site.BaseURL) }}
         <meta
             http-equiv="refresh"
-            content="0; url=https://harper.blog/notes/"
+            content="0; url={{ $redirectUrl }}"
         />
     </head>
     <body>
-        Redirecting to https://harper.blog/notes/
+        <p>Redirecting to <a href="{{ $redirectUrl }}">{{ $redirectUrl }}</a></p>
+        <p>If you are not redirected automatically, please click the link above.</p>
     </body>
 </html>
 {{ end }}

@@ -104,6 +104,15 @@
 		"plugins_html": [],
 		"feeds": {
 			"bookmarks_json": "[FEEDS_BOOKMARKS_JSON]"
-		}		
+		},
+		"default_redirect_url": "https://harper.blog/notes/",
+		"copyright_name": "Harper Reed",
+		"hosting_provider": "Micro.blog",
+		"hosting_url": "https://micro.blog",
+		"navigation_links": [
+			{"text": "harper.blog", "url": "https://harper.blog"},
+			{"text": "harper.lol", "url": "https://harper.lol"},
+			{"text": "harper@modest.com", "url": "mailto:harper@modest.com"}
+		]
 	}
 }

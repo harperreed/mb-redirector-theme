@@ -1,13 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
     <head>
-        <link rel="micropub" href="https://micro.blog/micropub" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Redirecting...</title>
         <link rel="micropub" href="https://micro.blog/micropub" />
         <link
             rel="authorization_endpoint"
             href="https://micro.blog/indieauth/auth"
         />
         <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
+        {{ if .Params.redirect }}
         <meta http-equiv="refresh" content="0; url={{ .Params.redirect }}" />
+        {{ end }}
     </head>
-    <body></body>
+    <body>
+        {{ if .Params.redirect }}
+        <p>Redirecting to <a href="{{ .Params.redirect }}">{{ .Params.redirect }}</a></p>
+        <p>If you are not redirected automatically, please click the link above.</p>
+        {{ else }}
+        <p>Error: No redirect URL specified.</p>
+        {{ end }}
+    </body>
 </html>

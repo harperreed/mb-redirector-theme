@@ -1,8 +1,15 @@
 <header>
     <h1>{{ $.Site.Title }}</h1>
+    {{ with .Site.Params.navigation_links }}
     <nav>
-        <a href="https://harper.blog">harper.blog</a> /
-        <a href="https://harper.lol">harper.lol</a> /
-        <a href="mailto:harper@modest.com">harper@modest.com</a>
+        {{ range $index, $link := . }}
+            {{ if $index }} / {{ end }}
+            {{ if $link.url }}
+                <a href="{{ $link.url }}">{{ $link.text }}</a>
+            {{ else }}
+                {{ $link.text }}
+            {{ end }}
+        {{ end }}
     </nav>
+    {{ end }}
 </header>
