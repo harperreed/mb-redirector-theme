@@ -1,10 +1,29 @@
-<!DOCTYPE html>
+{{ if and (eq .Type "note") (eq .Section "notes") }}
+<!doctype html>
 <html>
     {{ partial "head.html" . }}
     <body>
-        {{ partial "header.html" . }}
-        {{ block "main" . }}{{ end }}
-        {{ partial "footer.html" . }}
-		{{ partial "custom_footer.html" . }}
+        {{ partial "header.html" . }} {{ block "main" . }}{{ end }} {{ partial
+        "footer.html" . }} {{ partial "custom_footer.html" . }}
     </body>
 </html>
+{{else}}
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+    <head>
+        <link rel="micropub" href="https://micro.blog/micropub" />
+        <link
+            rel="authorization_endpoint"
+            href="https://micro.blog/indieauth/auth"
+        />
+        <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
+        <meta
+            http-equiv="refresh"
+            content="10; url=https://harper.blog/notes/"
+        />
+    </head>
+    <body>
+        Redirecting to https://harper.blog/notes/
+    </body>
+</html>
+{{ end }}
