@@ -1,9 +1,9 @@
 {{ $redirectUrl := .Site.Params.default_redirect_url | default (printf "%snotes/" .Site.BaseURL) }}
 <header>
-    <div style="display: flex; align-items: center; gap: 12px;">
+    <div>
         {{ $avatarUrl := .Site.Params.header_avatar | default .Site.Author.avatar }}
         {{ if $avatarUrl }}
-        <img src="{{ $avatarUrl }}" alt="{{ $.Site.Title }} avatar" style="width: 48px; height: 48px; border-radius: 50%;" />
+        <img src="{{ $avatarUrl }}" alt="{{ $.Site.Title }} avatar" />
         {{ end }}
         <h1 style="margin: 0;"><a href="{{ $redirectUrl }}">{{ $.Site.Title }}</a></h1>
     </div>
