@@ -1,3 +1,4 @@
+{{ $redirectUrl := .Site.Params.default_redirect_url | default (printf "%snotes/" .Site.BaseURL) }}
 <header>
     <h1><a href="{{ $redirectUrl }}">{{ $.Site.Title }}</a></h1>
     {{ with .Site.Params.navigation_links }}
