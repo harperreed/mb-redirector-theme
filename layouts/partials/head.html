@@ -6,3 +6,43 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
 />
+<style>
+    .microblog_shared_note {
+        background: #000;
+        color: #fff;
+        padding: 14px 18px;
+        margin: 0 0 24px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.875em;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        border: 2px solid #000;
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    .microblog_shared_note::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #fff;
+    }
+
+    .microblog_shared_note svg {
+        fill: #fff;
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+    }
+
+    .microblog_shared_note i {
+        font-style: normal;
+        font-weight: 400;
+        text-transform: none;
+    }
+</style>
