@@ -1,6 +1,12 @@
 {{ $redirectUrl := .Site.Params.default_redirect_url | default (printf "%snotes/" .Site.BaseURL) }}
 <header>
-    <h1><a href="{{ $redirectUrl }}">{{ $.Site.Title }}</a></h1>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        {{ $avatarUrl := .Site.Params.header_avatar | default .Site.Author.avatar }}
+        {{ if $avatarUrl }}
+        <img src="{{ $avatarUrl }}" alt="{{ $.Site.Title }} avatar" style="width: 48px; height: 48px; border-radius: 50%;" />
+        {{ end }}
+        <h1 style="margin: 0;"><a href="{{ $redirectUrl }}">{{ $.Site.Title }}</a></h1>
+    </div>
     {{ with .Site.Params.navigation_links }}
     <nav>
         {{ range $index, $link := . }} {{ if $index }} / {{ end }} {{ if
