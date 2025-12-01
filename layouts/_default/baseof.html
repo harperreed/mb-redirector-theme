@@ -3,8 +3,10 @@
 <html lang="en">
     {{ partial "head.html" . }}
     <body>
-        {{ partial "header.html" . }} {{ block "main" . }}{{ end }} {{ partial
-        "footer.html" . }} {{ partial "custom_footer.html" . }}
+        {{ partial "header.html" . }} 
+        {{ block "main" . }}{{ end }} 
+        {{ partial "footer.html" . }} 
+        {{ partial "custom_footer.html" . }}
     </body>
 </html>
 {{else}}
