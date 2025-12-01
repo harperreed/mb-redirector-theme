@@ -47,6 +47,8 @@
     }
 </style>
 <title>
+    {{ if and (eq .Type "note") (eq .Section "notes") }}PRIVATE NOTE &middot;{{ end }}
+    
     {{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{
     .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " |
     first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}
