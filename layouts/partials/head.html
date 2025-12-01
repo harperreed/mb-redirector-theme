@@ -46,3 +46,8 @@
         text-transform: none;
     }
 </style>
+<title>
+    {{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{
+    .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " |
+    first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}
+</title>
